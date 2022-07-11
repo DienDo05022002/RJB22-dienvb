@@ -1,0 +1,16 @@
+.div__bar {
+    display: flex;
+    margin: 40px 100px
+}
+.span-name {
+    color:rgb(71, 70, 70)
+}
+.div__bar-text {
+    width: 80px;
+}
+.process__bar {
+    width: 900px;
+}
+.percentage-none {
+    font-weight: 0;
+}

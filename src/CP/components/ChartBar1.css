@@ -1,0 +1,23 @@
+.main-chartBar {
+    display: flex;
+    margin: 100px 200px;
+}
+.chartBar1 {
+    display: flex; 
+    width: 160px; 
+    color: white; 
+    font-weight: 500; 
+    justify-content: end; 
+    align-items: center;
+    padding-right: 24px;
+    height: 40px;
+}
+.chartBar1-left {
+    padding-left: 24px;
+    align-items: center;
+    display: flex; 
+}
+.course-icon {
+    display: flex;
+    margin: 20px 200px;
+}

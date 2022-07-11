@@ -1,0 +1,28 @@
+.div__bar4{
+    align-items: center;
+    justify-content: center;
+    width: 300px;
+    margin: auto;
+    border: 0.5px solid rgb(216, 215, 215);
+    padding-top: 20px;
+}
+.column{
+    display: block;
+    height: 50px;
+    width: 50px;
+}
+.text-__span {
+    color:silver;
+    font-size: small;
+}
+.text__visitiors {
+    display: flex;
+    font-weight: 400;
+    justify-content:center
+}
+.text__total {
+    display: flex;
+    justify-content:center;
+    color:rgb(33, 199, 199);
+    font-size: xx-large;
+}
