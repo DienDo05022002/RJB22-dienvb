@@ -52,13 +52,6 @@ function App() {
     </div>
     
 
-    <Person></Person>
-    <Person></Person>
-    <Person></Person>
-    <Person></Person>
-
-    <Bai1></Bai1>
-    <Bai2HW></Bai2HW>
 
       {/* <JSX></JSX> */}
       {/* <ES6></ES6> */}

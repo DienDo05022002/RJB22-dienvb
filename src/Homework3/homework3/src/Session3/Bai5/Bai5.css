@@ -1,0 +1,10 @@
+.main {
+    display:flex;
+    align-items: center;
+}
+.buttom__name {
+    border:0.5px solid black
+}
+.text__content {
+    border:0.5px solid black
+}

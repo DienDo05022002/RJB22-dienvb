@@ -1,0 +1,31 @@
+.tabs-main {
+    text-align: center;
+}
+
+.tabs-button {
+    display: flex;
+    justify-content: center;
+}
+
+.tabs-button div {
+    min-width: 150px;
+    cursor: pointer;
+    height: 51px;
+    line-height: 51px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    font-size: 12px;
+}
+
+.tabs-info div:hover {
+    background-color: rgb(224, 223, 223);
+}
+
+.tabs-main p {
+    font-weight: 400;
+    font-size: 13px;
+    margin-top: 25px;
+    display: block;
+    width: 1000px;
+    margin: auto
+}

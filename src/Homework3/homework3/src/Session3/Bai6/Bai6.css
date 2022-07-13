@@ -1,0 +1,18 @@
+.img__container{
+    width: 80%;
+    height:auto;
+    margin: auto
+}
+.buttom-bai6 {
+    width: 100px;
+    height:30px;
+
+}
+.buttom-bai6:hover {
+    background-color:black;
+    color:whitesmoke
+}
+.main-contaner {
+    display: flex;
+    justify-content: center;
+}
