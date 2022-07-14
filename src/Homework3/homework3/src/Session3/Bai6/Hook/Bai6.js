@@ -18,12 +18,15 @@ export default function Bai6() {
             <div className="click__btn">
                 <button className="click__btn" 
                 onClick={() => {
-                setImage(image+1)
-                }}>PRE</button>
+                    // setImage(image+1)
+                    if(pics.length < 6) {setImage(image+1)} else {setImage(image[0])}
+                }}>+</button>
 
-                {/* <button onClick={() => {
-                setImage(image-1)
-                }}>NẼT</button> */}
+                {/* <button  className="click__btn"
+                onClick={() => {
+                    if(setImage(image) !== pics.length)
+                    {setImage(image-1)}
+                }}>-</button> */}
             </div>
         </div>
         <div>

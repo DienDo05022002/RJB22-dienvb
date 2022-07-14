@@ -10,6 +10,8 @@
 }
 .click__btn {
     width: 100px;
+    height:30px;
+    font-size:x-large;
     background-color:whitesmoke;
     margin: auto;
     align-items: center;
