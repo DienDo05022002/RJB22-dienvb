@@ -1,0 +1,25 @@
+.img__container {
+    width: 70%;
+    height:auto;
+    align-items: center;
+    margin: auto;
+    margin-left: 200px;
+    padding: 100px 0 70px 0;
+    position: relative;
+
+}
+.click__btn {
+    width: 100px;
+    background-color:whitesmoke;
+    margin: auto;
+    align-items: center;
+}
+.btn__thumb {
+    width: 20px;
+    height:20px;
+    border-radius: 10px;
+    padding: 10px;
+    /* padding-left: 400px; */
+    background-color:rgb(245, 164, 107)
+    /* position:absolute */
+}

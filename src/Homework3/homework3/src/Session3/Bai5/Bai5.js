@@ -27,7 +27,7 @@ export default function Bai5() {
                         <Accordion key = {`id: ${id}`} data={data}></Accordion>
                     )
                 }) }
-                <div onClick={() => setContent(content)}></div>
+                <button className="onClick" onClick={() => setContent(content)}>Set</button>
             </div>
         );
     }    
