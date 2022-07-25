@@ -18,8 +18,8 @@ function App() {
       {/* <Bai2></Bai2> */}
       {/* <Bai3></Bai3> */}
       {/* <Bai4></Bai4> */}
-      <Bai5></Bai5>
-      <Bai6></Bai6>
+      {/* <Bai5></Bai5>
+      <Bai6></Bai6> */}
       {/* <Bai6></Bai6> */}
     </div>
   );

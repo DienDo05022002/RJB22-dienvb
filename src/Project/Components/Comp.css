@@ -1,0 +1,13 @@
+.btn-comp {
+    width: 100px;
+    height:35px;
+}
+ul {
+    display: flex;
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+li {
+    margin: auto;
+    background-color: whitesmoke;
+}
