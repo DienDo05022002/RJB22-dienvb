@@ -44,6 +44,19 @@ export default function ProductsList() {
         setProductList(json)
       })
   }, []);
+
+  const deleteData = (id) => {
+    fetch("https://62ce2903066bd2b699309018.mockapi.io/api/v1/customer/" + id, {
+      method: 'DELETE',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    })
+      .then((response) => response.json())
+      .then((json) => {
+        console.log(console.log("Xóa thành công:"+ json))
+      })
+  }
   return (
     <div>
       <TableContainer component={Paper}>
@@ -65,7 +78,11 @@ export default function ProductsList() {
                 <StyledTableCell align="right">{product.price}</StyledTableCell>
                 <StyledTableCell style={{alignItems: "center"}}>{product.description}</StyledTableCell>
                 <StyledTableCell align="right">
-                  <EditButton></EditButton>
+                  <EditButton
+                  itemId={product.id}
+                  name="products"
+                  onDelete={(e) => deleteData(product.id, e)}
+                  ></EditButton>
                 </StyledTableCell>
               </StyledTableRow>
             ))}

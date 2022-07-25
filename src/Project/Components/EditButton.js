@@ -17,6 +17,7 @@ export default function EditButton(props) {
                 onDelete()
                 console.log(json);
             })
+            console.log("xoa thanh cong")
 
         // if (onDelete && typeof onDelete === "function") {
         //     onDelete();

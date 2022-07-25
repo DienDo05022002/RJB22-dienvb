@@ -39,7 +39,7 @@ export default function CustomersList() {
   const [customerList, setCustomerList] = useState([])
 
 
-  let url ="https://62ce2903066bd2b699309018.mockapi.io/api/v1/customer" 
+  let url = "https://62ce2903066bd2b699309018.mockapi.io/api/v1/customer"
   //  "https://62d7fd469088313935889072.mockapi.io/api/v1/customer"
   useEffect(() => {
 
@@ -49,6 +49,20 @@ export default function CustomersList() {
         setCustomerList(json)
       })
   }, []);
+
+  const deleteData = (id) => {
+    fetch("https://62ce2903066bd2b699309018.mockapi.io/api/v1/customer/" + id, {
+      method: 'DELETE',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    })
+      .then((response) => response.json())
+      .then((json) => {
+        console.log("Xóa thành công:"+ json);
+      })
+
+  }
   return (
     <>
       <TableContainer component={Paper}>
@@ -77,7 +91,11 @@ export default function CustomersList() {
                 <StyledTableCell align="right">{customer.gender}</StyledTableCell>
                 <StyledTableCell align="right">{customer.phone}</StyledTableCell>
                 <StyledTableCell align="right">
-                  <EditButton></EditButton>
+                  <EditButton
+                    itemId={customer.id}
+                    name="customers"
+                    onDelete={(e) => deleteData(customer.id, e)}
+                  ></EditButton>
                 </StyledTableCell>
               </StyledTableRow>
             ))}
