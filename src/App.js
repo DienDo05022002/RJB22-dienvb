@@ -42,10 +42,12 @@ function App() {
         <Route path='/' element={<Home/>}/>
         <Route path='customers' element={<Customers/>}>
           <Route path='list' element={<CustomerList />}/>
+          <Route path='edit/:id' element={<CustomersForm />}/>
           <Route path='form' element={<CustomersForm />}/>
         </Route>
         <Route path='products' element={<Products/>}>
           <Route path="list" element={<ProductsList/>}/>
+          <Route path="edit/:id" element={<ProductsForm/>}/>
           <Route path="form" element={<ProductsForm/>}/>
         </Route>
       </Routes>

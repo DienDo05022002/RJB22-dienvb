@@ -2,7 +2,7 @@ import React from "react";
 import { useForm } from "react-hook-form";
 import { useParams } from "react-router-dom";
 import { useState } from "react";
-import {useEffect} from "react";
+import { useEffect } from "react";
 import axios from "axios";
 
 const ERROR_EMAIL = {
@@ -12,44 +12,42 @@ const ERROR_EMAIL = {
 
 export default function CustomersForm() {
     let { id } = useParams();
-    const { register, handleSubmit,setValue } = useForm();
+    const { register, formState: { errors }, handleSubmit, setValue } = useForm();
 
 
     const [customerForm, setCustomerForm] = useState([])
     // const onSubmit = data => console.log(data);
-    const onClick = () => {
-        alert("Tạo thành công. Chuyển đến List để xem")
-    }
+
+
+
     async function fetchDataCustomer(urlCustomer) {
+        console.log(1);
         try {
-          let response = await axios.get(urlCustomer);
-          let temp = await response.data;
-          if (id) {
-            setValue("email", temp?.email);
-            setValue("address1", temp?.address);
-            setValue("address2", temp?.address2);
-            setValue("city", temp?.city);
-            setValue("district", temp?.district);
-            setValue("commune", temp?.commune);
-          }
-          return temp;
+            let response = await axios.get(urlCustomer);
+            let temp = await response.data;
+            console.log(temp);
+            if (id) {
+                setValue("name", temp?.name);
+                setValue("postCode", temp?.postCode);
+                setValue("address", temp?.address);
+                setValue("dod", temp?.dod);
+                setValue("gender", temp?.gender);
+                setValue("phone", temp?.phone);
+            }
+            return temp;
         } catch (err) {
-          console.log("Error: ", err.message);
-          return {};
+            console.log("Error: ", err.message);
+            return {};
         }
-      }
-    
-      useEffect(() => {
+    }
+    useEffect(() => {
+        console.log(id);
         if (id) {
-          let urlCustomer =
-            "https://62ce2903066bd2b699309018.mockapi.io/api/v1/customer/" + id;
-          let temp = fetchDataCustomer(urlCustomer);
-          temp.then(function (response) {
-            console.log(response)
-            return response;
-            
-          });
-        } }, []);
+            let urlCustomer =
+                "https://62d7fd469088313935889072.mockapi.io/api/v1/Customer/" + id;
+            fetchDataCustomer(urlCustomer);
+        }
+    }, []);
 
     const onSubmit = (data, e) => {
         e.preventDefault();
@@ -74,7 +72,8 @@ export default function CustomersForm() {
             phone: data.phone,
         };
 
-        fetch("https://62ce2903066bd2b699309018.mockapi.io/api/v1/customer/", {
+        // console.log(dumpData);
+        fetch("https://62d7fd469088313935889072.mockapi.io/api/v1/Customer", {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -89,7 +88,9 @@ export default function CustomersForm() {
             })
 
     }
-
+    const onClick = () => {
+        alert("Tạo thành công. Chuyển đến List để xem")
+    }
 
     return (
         <div>
@@ -109,7 +110,7 @@ export default function CustomersForm() {
                         {...register("name", {
                             required: true
                         })}
-                    />
+                    />{errors.name?.type === 'required' && <p style={{ color: "red", fontSize : "x-small" }}>Vui lòng điền tên</p>}
                     <label htmlFor="inputEmail" className="form-label" style={{ margin: 12 }}>
                         postCode
                     </label>
@@ -117,8 +118,8 @@ export default function CustomersForm() {
                         className="form-control"
                         id="postCode"
                         placeholder="postCode"
-                        type="number" {...register("postCode")}
-                    />
+                        {...register("postCode")}
+                    />{errors.postCode && <p style={{ color: "red", fontSize : "x-small" }}>Vui lòng điền postCode</p>}
                 </div>
                 <div style={{ display: "flex", marginTop: 15, marginBottom: 15 }}>
                     <label htmlFor="inputEmail" className="form-label" style={{ margin: 12 }}>
@@ -128,11 +129,11 @@ export default function CustomersForm() {
                         className="form-control"
                         id="inputName"
                         placeholder="Name"
-                        ref={() => register({ name: "name" })}
-                        {...register("name", {
+                        ref={() => register({ name: "address" , fontSize : "x-small"})}
+                        {...register("address", {
                             required: true
                         })}
-                    />
+                    />{errors.address && <p style={{ color: "red" , fontSize : "x-small"}}>Vui lòng điền Address</p>}
                     <label htmlFor="inputEmail" className="form-label" style={{ margin: 12 }}>
                         dod
                     </label>
@@ -140,11 +141,11 @@ export default function CustomersForm() {
                         className="form-control"
                         id="inputName"
                         placeholder="Name"
-                        ref={() => register({ name: "name" })}
-                        {...register("name", {
+                        ref={() => register({ name: "dod" })}
+                        {...register("dod", {
                             required: true
                         })}
-                    />
+                    />{errors.dod && <p style={{ color: "red" , fontSize : "x-small"}}>Vui lòng điền dod</p>}
                 </div>
 
                 <div style={{ display: "flex" }}>
@@ -160,7 +161,7 @@ export default function CustomersForm() {
                             required: ERROR_EMAIL?.required,
                             pattern: /[a-z0-9._%+-]+@[a-z0-9.-]+.[a-z]{2,4}$/,
                         })}
-                    />
+                    /><p>{errors.email?.type === "pattern" && "Điền Email hợp lệ"}</p>
                     <label htmlFor="inputEmail" className="form-label" style={{ margin: 12 }}>
                         Gender
                     </label>
@@ -174,9 +175,9 @@ export default function CustomersForm() {
                         Phone
                     </label>
                     <input style={{ width: 400 }}
-                        placeholder="Phone"
-                        type="number" {...register("Phone")}
+                        placeholder="Phone" {...register("Phone")}
                     />
+                    {errors.Phone && <p style={{ color: "red" , fontSize : "x-small" }}>Vui lòng điền sđt</p>}
 
                 </div>
 

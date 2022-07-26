@@ -39,7 +39,7 @@ export default function CustomersList() {
   const [customerList, setCustomerList] = useState([])
 
 
-  let url = "https://62ce2903066bd2b699309018.mockapi.io/api/v1/customer"
+  let url = "https://62d7fd469088313935889072.mockapi.io/api/v1/Customer"
   //  "https://62d7fd469088313935889072.mockapi.io/api/v1/customer"
   useEffect(() => {
 
@@ -50,8 +50,9 @@ export default function CustomersList() {
       })
   }, []);
 
+
   const deleteData = (id) => {
-    fetch("https://62ce2903066bd2b699309018.mockapi.io/api/v1/customer/" + id, {
+    fetch("https://62d7fd469088313935889072.mockapi.io/api/v1/Customer" + id, {
       method: 'DELETE',
       headers: {
         'Content-Type': 'application/json',
@@ -59,10 +60,17 @@ export default function CustomersList() {
     })
       .then((response) => response.json())
       .then((json) => {
-        console.log("Xóa thành công:"+ json);
+        // setCustomerList(customerList.filter((customer) => {
+        //   return customer.id !== id
+        // }))
+
+        // sau khi click delete sẽ render lại list 
+        setCustomerList(customerList.filter(customer => customer.id !== id))
+        console.log("Xóa thành công:" + json);
       })
 
   }
+
   return (
     <>
       <TableContainer component={Paper}>

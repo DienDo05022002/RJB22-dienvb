@@ -6,7 +6,7 @@ import Comp from './Comp.css'
 export default function EditButton(props) {
     const { name, onDelete, onClick, itemId } = props;
     const handleOnDelete = (id) => {
-        fetch("https://62ce2903066bd2b699309018.mockapi.io/api/v1/customer/"+ id, {
+        fetch("https://62d7fd469088313935889072.mockapi.io/api/v1/Customer/" + itemId ,{
             method: 'DELETE',
             headers: {
                 'Content-Type': 'application/json',
@@ -17,11 +17,7 @@ export default function EditButton(props) {
                 onDelete()
                 console.log(json);
             })
-            console.log("xoa thanh cong")
-
-        // if (onDelete && typeof onDelete === "function") {
-        //     onDelete();
-        // }
+            alert("xoa thanh cong")
     }
 
     return (
@@ -30,7 +26,7 @@ export default function EditButton(props) {
             <Link
                 type="button"
                 className="btn btn-success mx-3 btn-comp"
-                to="/customers/form/"
+                to={`/${name}/edit/${itemId}`}
             >
                 Edit
             </Link>

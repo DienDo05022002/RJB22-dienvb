@@ -54,6 +54,7 @@ export default function ProductsList() {
     })
       .then((response) => response.json())
       .then((json) => {
+        setProductList(productList.filter(product => product.id !== id))
         console.log(console.log("Xóa thành công:"+ json))
       })
   }
